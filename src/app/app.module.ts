@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {CdkTableModule} from '@angular/cdk/table';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    CdkTableModule,
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule
