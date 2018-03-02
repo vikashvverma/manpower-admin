@@ -26,7 +26,7 @@ export class JobDialogComponent implements OnInit {
   ngOnInit() {
     this.id = this.data.job_id;
     this.selected = this.data.industry || 'Mechanical';
-    // this.selectedTitle = this.jobTitles && this.jobTitles.length && this.jobTitles[0].title;
+    this.selectedTitle = this.data.title;
     this.pickTitle();
   }
 
