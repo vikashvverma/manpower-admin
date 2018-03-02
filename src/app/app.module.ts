@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
+import { JobComponent } from './job/job.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
