@@ -4,3 +4,11 @@
   padding-left: 2%;
   padding-right: 2%;
 }
+
+.pointer{
+ cursor: pointer;
+}
+.snackbar {
+  background-color: #ff4081 !important;
+  color: #fff !important;
+}

@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { JobComponent } from './job/job.component';
 import { HomeComponent } from './home/home.component';
 import { JobService } from './job/shared/job.service';
+import { JobDialogComponent } from './job/job-dialog/job-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     JobComponent,
-    HomeComponent
+    HomeComponent,
+    JobDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { JobService } from './job/shared/job.service';
     AppRoutingModule
   ],
   providers: [JobService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [JobDialogComponent]
 })
 export class AppModule {
 }
