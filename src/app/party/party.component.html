@@ -1,0 +1,123 @@
+
+<div class="example-container mat-elevation-z8" [class.isMobile]="isMobile">
+  <mat-toolbar color="warn" class="card-toolbar">
+    <button mat-fab class="card-top" matTooltip="Just for fun">
+      <mat-icon aria-label="Favorite">favorite</mat-icon>
+    </button>
+    <h1 class="example-app-name">Showing Requirements</h1>
+  </mat-toolbar>
+
+  <div class="example-header">
+    <mat-form-field class="full-width">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Job ID Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Name</span>
+        {{row.name}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="business">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Business </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Business</span>
+        {{row.business}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Industry Column -->
+    <ng-container matColumnDef="website" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Website </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Website</span>
+        {{row.website}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Location Column -->
+    <ng-container matColumnDef="address" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Address</span>
+        {{row.address}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Date Created Column -->
+    <ng-container matColumnDef="city" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">City</span>
+        {{row.city}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Date Updated Column -->
+    <ng-container matColumnDef="state" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">State</span>
+        {{row.state}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="pin">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>PIN</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">PIN</span>
+        {{row.pin}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Country</span>
+        {{row.country}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="mobile">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Mobile</span>
+        {{row.mobile}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Email</span>
+        {{row.email}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="query">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Query</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">Query</span>
+        {{row.query.query}} {{row.industry ? '(' + row.industry + ',' + row.title + ')' : ''}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
