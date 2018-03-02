@@ -1,0 +1,47 @@
+.full-width{
+  width: 96%;
+  width: -webkit-fill-available;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.pointer{
+  cursor: pointer;
+}
+.snackbar {
+  background-color: #ff4081 !important;
+  color: #fff !important;
+}
+
+.mat-column-query {
+  flex: 0 0 20%;
+}
+
+@media(min-width: 601px) {
+
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 10px;
+  }
+  .mat-row .mat-cell {
+    padding: 2px;
+  }
+}
