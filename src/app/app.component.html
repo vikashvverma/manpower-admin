@@ -1,31 +1,59 @@
-<div>
-  <mat-toolbar color="primary">
-    <span><mat-icon>mood</mat-icon></span>
-
-    <span>Yay, Material in Angular 2!</span>
-
-    <button mat-icon-button [mat-menu-trigger-for]="menu">
-      <mat-icon>more_vert</mat-icon>
+<div class="main" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
+    <h1 class="example-app-name">{{title}}</h1>
   </mat-toolbar>
-  <mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item>Option 1</button>
-    <button mat-menu-item>Option 2</button>
-  </mat-menu>
 
-  <mat-card>
-    <button mat-button>All</button>
-    <button mat-raised-button>Of</button>
-    <button mat-raised-button color="primary">The</button>
-    <button mat-raised-button color="accent">Buttons</button>
-  </mat-card>
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+                         [style.marginBottom.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <section class="mat-typography margin" color="primary">
+        <h1>{{titleSidebar}}</h1>
+      </section>
+      <mat-divider></mat-divider>
+      <mat-nav-list class="list">
+          <a mat-list-item routerLink="." *ngFor="let nav of fillerNav" >{{nav}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-  <span class="done">
-    <button mat-fab>
-      <mat-icon>check circle</mat-icon>
-    </button>
-  </span>
-  <div class="example-container mat-elevation-z8">
+    <mat-sidenav-content class="content-padding">
+      <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center">
+        <mat-card *ngFor="let item of dashboard">
+            <mat-toolbar color="warn" class="card-toolbar">
+              <button mat-fab class="card-top">
+                <mat-icon aria-label="Favorite">favorite</mat-icon>
+              </button>
+              <h1 class="example-app-name">{{item.title}}</h1>
+            </mat-toolbar>
+          <mat-divider></mat-divider>
+          <mat-list>
+            <mat-list-item style="min-width: 300px;" *ngFor="let content of item.content">
+              <mat-divider></mat-divider>
+              <img matListAvatar src="https://goo.gl/p3PCc8" alt="avatar">
+              <div matLine>
+                <h3 style="display: inline; padding-right: 30%"> {{content.name}}</h3>
+                <span>{{content.count}}</span>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card>
+      </div>
 
-  </div>
+
+      <span class="done">
+         <button mat-fab>
+          <mat-icon>check circle</mat-icon>
+        </button>
+      </span>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar color="accent" class="footer">
+    <h1 class="example-app-name">Manpower Admin</h1>
+  </mat-toolbar>
 </div>
