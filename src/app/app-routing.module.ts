@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { JobComponent } from './job/job.component';
+import { PartyComponent } from './party/party.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
   {
     path: 'job',
     component: JobComponent
+  },
+  {
+    path: 'party',
+    component: PartyComponent
   },  // { path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

@@ -14,7 +14,7 @@ export class AppComponent implements OnDestroy {
   titleSidebar = 'Manpower Admin';
   mobileQuery: MediaQueryList;
   fillerNav = ['Dashboard', 'Jobs', 'Requirements'];
-  navigation = [{name: 'Dashboard', path: '/'}, {name: 'Jobs', path: '/job'}, {name: 'Requirements', path: '/requirement'}];
+  navigation = [{name: 'Dashboard', path: '/'}, {name: 'Jobs', path: '/job'}, {name: 'Requirements', path: '/party'}];
 
 
   private _mobileQueryListener: () => void;

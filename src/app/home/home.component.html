@@ -10,7 +10,7 @@
     <mat-list>
       <mat-list-item style="min-width: 300px;" *ngFor="let content of item.content">
         <mat-divider></mat-divider>
-        <img matListAvatar src="https://goo.gl/p3PCc8" alt="avatar">
+        <img matListAvatar src="{{content.img}}" alt="avatar">
         <div matLine>
           <h3 style="display: inline; padding-right: 30%"> {{content.name}}</h3>
           <span>{{content.count}}</span>
