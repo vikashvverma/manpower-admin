@@ -1,3 +1,70 @@
-<p>
-  job works!
-</p>
+
+<div class="example-container mat-elevation-z8">
+  <mat-toolbar color="warn" class="card-toolbar">
+    <button mat-fab class="card-top" matTooltip="Add a new job">
+      <mat-icon aria-label="Favorite">add</mat-icon>
+    </button>
+    <h1 class="example-app-name">Showing Jobs</h1>
+  </mat-toolbar>
+
+  <div class="example-header">
+    <mat-form-field class="full-width">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Job ID Column -->
+    <ng-container matColumnDef="job_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.job_id}} </mat-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+    </ng-container>
+
+    <!-- Industry Column -->
+    <ng-container matColumnDef="industry">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Industry </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.industry"> {{row.industry}} </mat-cell>
+    </ng-container>
+
+    <!-- Location Column -->
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.location}} </mat-cell>
+    </ng-container>
+
+    <!-- Date Created Column -->
+    <ng-container matColumnDef="date_created">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Created </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date_created | date: 'dd/MM/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <!-- Date Updated Column -->
+    <ng-container matColumnDef="date_updated">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Updated </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date_updated | date: 'dd/MM/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="available">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Available</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-slide-toggle [checked]="row.available"  matTooltip="Available"></mat-slide-toggle>
+        <mat-icon color="primary" matTooltip="Edit">edit</mat-icon>
+        <mat-icon color="warn"  matTooltip="Delete" (click)="delete(row.job_id)">delete</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
