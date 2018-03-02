@@ -1,0 +1,37 @@
+<mat-toolbar color="warn" class="card-toolbar margin-bottom">
+  <h1 class="example-app-name">Edit Job</h1>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayout.xs="column" fxFlexAlign="center">
+  <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center" class="row">
+    <mat-form-field class="job">
+      <input type="number" matInput placeholder="Job ID" value="{{data.job_id}}" [(ngModel)]="data.job_id" [disabled]="id">
+    </mat-form-field>
+    <mat-form-field class="job">
+      <!--<input matInput placeholder="Title" value="{{data.title}}" [(ngModel)]="data.title">-->
+      <mat-select [(ngModel)]="data.title" [(value)]="selectedTitle">
+        <mat-option *ngFor="let jobTitle of jobTitles" value="{{jobTitle.title}}">{{jobTitle.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center" class="row">
+    <mat-form-field class="job">
+      <!--<input matInput placeholder="Industry" value="{{data.industry}}" [(ngModel)]="data.industry">-->
+      <mat-select [(ngModel)]="data.industry" [(value)]="selected" (change)="pickTitle()">
+        <mat-option *ngFor="let job of jobTypes" value="{{job.industry}}">{{job.industry}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="job">
+      <input matInput placeholder="Location" value="{{data.location}}" [(ngModel)]="data.location">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center" class="row margin-bottom">
+      <mat-slide-toggle [checked]="data.available"  matTooltip="Available" [(ngModel)]="data.available"> Avaialble</mat-slide-toggle>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" class="row" fxLayoutAlign="space-around">
+    <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-raised-button color="accent" [mat-dialog-close]="data">Save</button>
+  </div>
+</div>
+

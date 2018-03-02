@@ -1,7 +1,7 @@
 
 <div class="example-container mat-elevation-z8">
   <mat-toolbar color="warn" class="card-toolbar">
-    <button mat-fab class="card-top" matTooltip="Add a new job">
+    <button mat-fab class="card-top" matTooltip="Add a new job" (click)="edit()">
       <mat-icon aria-label="Favorite">add</mat-icon>
     </button>
     <h1 class="example-app-name">Showing Jobs</h1>
@@ -56,8 +56,8 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header>Available</mat-header-cell>
       <mat-cell *matCellDef="let row">
         <mat-slide-toggle [checked]="row.available"  matTooltip="Available"></mat-slide-toggle>
-        <mat-icon color="primary" matTooltip="Edit">edit</mat-icon>
-        <mat-icon color="warn"  matTooltip="Delete" (click)="delete(row.job_id)">delete</mat-icon>
+        <mat-icon class="pointer" color="primary" matTooltip="Edit" (click)="edit(row)">edit</mat-icon>
+        <mat-icon class="pointer" color="warn"  matTooltip="Delete" (click)="delete(row.job_id)">delete</mat-icon>
       </mat-cell>
     </ng-container>
 

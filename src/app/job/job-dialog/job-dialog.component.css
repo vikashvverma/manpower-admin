@@ -1,0 +1,12 @@
+.margin-bottom{
+  margin-bottom: 40px;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.row > .job{
+  margin-left: 20px;
+  margin-right: 20px;
+}
