@@ -9,6 +9,7 @@
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
                          [style.marginBottom.px]="mobileQuery.matches ? 56 : 0">
+    <!--Sidebar-->
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <section class="mat-typography margin" color="primary">
@@ -16,33 +17,17 @@
       </section>
       <mat-divider></mat-divider>
       <mat-nav-list class="list">
-          <a mat-list-item routerLink="." *ngFor="let nav of fillerNav" >{{nav}}</a>
+          <a mat-list-item routerLink="{{nav.path}}"  routerLinkActive="active" *ngFor="let nav of navigation" >{{nav.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
+    <!--Sidebar ends-->
 
+    <!--Main Content Area-->
     <mat-sidenav-content class="content-padding">
-      <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center">
-        <mat-card *ngFor="let item of dashboard">
-            <mat-toolbar color="warn" class="card-toolbar">
-              <button mat-fab class="card-top">
-                <mat-icon aria-label="Favorite">favorite</mat-icon>
-              </button>
-              <h1 class="example-app-name">{{item.title}}</h1>
-            </mat-toolbar>
-          <mat-divider></mat-divider>
-          <mat-list>
-            <mat-list-item style="min-width: 300px;" *ngFor="let content of item.content">
-              <mat-divider></mat-divider>
-              <img matListAvatar src="https://goo.gl/p3PCc8" alt="avatar">
-              <div matLine>
-                <h3 style="display: inline; padding-right: 30%"> {{content.name}}</h3>
-                <span>{{content.count}}</span>
-              </div>
-            </mat-list-item>
-          </mat-list>
-        </mat-card>
-      </div>
 
+
+      <router-outlet></router-outlet>
+      <!-- Routed views go here -->
 
       <span class="done">
          <button mat-fab>
@@ -51,9 +36,12 @@
       </span>
 
     </mat-sidenav-content>
+    <!--Main content area ends-->
   </mat-sidenav-container>
 
+  <!--Footer-->
   <mat-toolbar color="accent" class="footer">
     <h1 class="example-app-name">Manpower Admin</h1>
   </mat-toolbar>
+  <!--Footer ends-->
 </div>
