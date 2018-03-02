@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayout.xs="column" fxFlexAlign="center">
+  <mat-card *ngFor="let item of dashboard">
+    <mat-toolbar color="warn" class="card-toolbar">
+      <button mat-fab class="card-top">
+        <mat-icon aria-label="Favorite">favorite</mat-icon>
+      </button>
+      <h1 class="example-app-name">{{item.title}}</h1>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item style="min-width: 300px;" *ngFor="let content of item.content">
+        <mat-divider></mat-divider>
+        <img matListAvatar src="https://goo.gl/p3PCc8" alt="avatar">
+        <div matLine>
+          <h3 style="display: inline; padding-right: 30%"> {{content.name}}</h3>
+          <span>{{content.count}}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

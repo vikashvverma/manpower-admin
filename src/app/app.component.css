@@ -30,20 +30,3 @@
   background-color: #ea4744;
 }
 
-.card-top{
-  top: -20px !important;
-  left: -68px;
-}
-
-.card.mat-title{
-  font-size: 25px;
-}
-
-.card-toolbar{
-  margin-top: -50px !important;
-  background: linear-gradient(60deg,#ef5350,#e53935);
-  box-shadow: 0 12px 20px -10px rgba(244,67,54,.28), 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px rgba(244,67,54,.2);
-  border-radius: 3px;
-  margin-bottom: 10px;
-
-}
