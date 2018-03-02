@@ -15,6 +15,8 @@ import { JobComponent } from './job/job.component';
 import { HomeComponent } from './home/home.component';
 import { JobService } from './job/shared/job.service';
 import { JobDialogComponent } from './job/job-dialog/job-dialog.component';
+import { PartyComponent } from './party/party.component';
+import { PartyService } from './party/shared/party.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { JobDialogComponent } from './job/job-dialog/job-dialog.component';
     AppComponent,
     JobComponent,
     HomeComponent,
-    JobDialogComponent
+    JobDialogComponent,
+    PartyComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { JobDialogComponent } from './job/job-dialog/job-dialog.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [JobService],
+  providers: [JobService, PartyService],
   bootstrap: [AppComponent],
   entryComponents: [JobDialogComponent]
 })

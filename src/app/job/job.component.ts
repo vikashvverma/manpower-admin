@@ -53,7 +53,9 @@ export class JobComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(!result) return;
+      if (!result) {
+        return;
+      }
       console.log('The dialog was closed', result);
       this.job = { ...result, type_id: this.jobType(result.industry)};
       this.jobService.edit(this.job).subscribe(data => {
