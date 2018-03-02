@@ -1,0 +1,6 @@
+.full-width{
+  width: 96%;
+  width: -webkit-fill-available;
+  padding-left: 2%;
+  padding-right: 2%;
+}
