@@ -1,0 +1,21 @@
+.mat-card.example-card {
+  padding: 0 !important;
+}
+
+.mat-card .mat-card-header {
+  background-color: #f44336;
+}
+.mat-card .mat-card-header .mat-card-title{
+  font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+  /*margin: 0;*/
+  color: #fff;
+  text-align: center;
+}
+.mat-card .mat-card-header .mat-card-subtitle{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: #ffffff;
+}
+
+.margin {
+  margin: 24px !important;
+}

@@ -4,6 +4,8 @@ import { Job } from './shared/job.models';
 import { JobService } from './shared/job.service';
 import { MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
 import { JobDialogComponent } from './job-dialog/job-dialog.component';
+import { AuthenticationService } from '../login/shared/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job',
@@ -23,10 +25,16 @@ export class JobComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private jobService: JobService, public snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(private _router: Router, private _service: AuthenticationService,
+              private jobService: JobService, public snackBar: MatSnackBar,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    if (!this._service.checkCredentials()) {
+      this._service.logout();
+      return;
+    }
     this.jobTypes = [new JobType(0, 'All'), new JobType(1, 'Mechanical'), new JobType(2, 'Electrical'), new JobType(3, 'Civil')];
     this.type = this.jobTypes[0];
     this.page = 0;

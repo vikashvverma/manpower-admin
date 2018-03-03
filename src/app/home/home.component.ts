@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JobService } from '../job/shared/job.service';
 import { PartyService } from '../party/shared/party.service';
+import { AuthenticationService } from '../login/shared/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,14 @@ export class HomeComponent implements OnInit {
   jobs = [{name: 'Mechanical', count: 0, img: './../../assets/img/client.png'}, {name: 'Electrical', count: 0, img: './../../assets/img/contractor.png'}, {name: 'Civil', count: 0, img: './../../assets/img/candidate.png'}];
   requests = [{name: 'Client', count: 0, img: './../../assets/img/client.png'}, {name: 'Contractor', count: 0, img: './../../assets/img/contractor.png'}, {name: 'Candidate', count: 0, img: './../../assets/img/candidate.png'}];
   dashboard = [{title: 'Jobs', content: this.jobs}, {title: 'Requests', content: this.requests}];
-  constructor(private jobSerice: JobService, private partyservice: PartyService) { }
+  constructor(private _router: Router, private _service: AuthenticationService,
+              private jobSerice: JobService, private partyservice: PartyService) { }
 
   ngOnInit() {
+    if (!this._service.checkCredentials()) {
+      this._service.logout();
+      return;
+    }
     this.stats();
   }
 

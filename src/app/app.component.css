@@ -30,3 +30,10 @@
   background-color: #ea4744;
 }
 
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}

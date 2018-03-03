@@ -3,7 +3,14 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="example-app-name">{{title}}</h1>
+    <h1 class="example-app-name pointer-cursor" (click)="home()">{{title}}</h1>
+    <span class="example-spacer"></span>
+    <button mat-icon-button style="float: right; " (click)="login()" *ngIf="!authenticated">
+      <mat-icon>send</mat-icon>
+    </button>
+    <button mat-icon-button style="float: right; " (click)="logout()" *ngIf="authenticated">
+      <mat-icon >exit_to_app</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"

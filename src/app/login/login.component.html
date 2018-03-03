@@ -1,0 +1,19 @@
+<mat-card class="example-card mat-elevation-z8">
+  <mat-card-header color="primary" class="mat-background-primary">
+    <mat-card-title>Manpower Admin</mat-card-title>
+    <mat-card-subtitle>login to access dashboard!</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="column" fxLayout.xs="column" fxFlexAlign="center" class="margin">
+        <mat-form-field class="job">
+          <input type="text" matInput placeholder="username" value="{{user.username}}" [(ngModel)]="user.username">
+        </mat-form-field>
+        <mat-form-field class="job">
+          <input type="password" matInput placeholder="password" value="{{user.password}}" [(ngModel)]="user.password">
+        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" class="row" fxLayoutAlign="space-around">
+        <button mat-raised-button color="accent" (click)="login();">Login</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
