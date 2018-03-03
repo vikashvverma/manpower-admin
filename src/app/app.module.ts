@@ -17,6 +17,8 @@ import { JobService } from './job/shared/job.service';
 import { JobDialogComponent } from './job/job-dialog/job-dialog.component';
 import { PartyComponent } from './party/party.component';
 import { PartyService } from './party/shared/party.service';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './login/shared/authenticate.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { PartyService } from './party/shared/party.service';
     JobComponent,
     HomeComponent,
     JobDialogComponent,
-    PartyComponent
+    PartyComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { PartyService } from './party/shared/party.service';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [JobService, PartyService],
+  providers: [JobService, PartyService, AuthenticationService],
   bootstrap: [AppComponent],
   entryComponents: [JobDialogComponent]
 })

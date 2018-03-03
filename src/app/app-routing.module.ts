@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { JobComponent } from './job/job.component';
 import { PartyComponent } from './party/party.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
@@ -19,6 +20,10 @@ const appRoutes: Routes = [
   {
     path: 'party',
     component: PartyComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },  // { path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

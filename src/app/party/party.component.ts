@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
 import { Party } from './shared/party.models';
 import { PartyService } from './shared/party.service';
+import { AuthenticationService } from '../login/shared/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-party',
@@ -16,11 +18,16 @@ export class PartyComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private partService: PartyService, public snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(private _router: Router, private _service: AuthenticationService,
+              private partService: PartyService, public snackBar: MatSnackBar,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.search();
+    if (!this._service.checkCredentials()) {
+      this._service.logout();
+    }
   }
 
   search() {

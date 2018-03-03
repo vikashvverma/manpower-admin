@@ -9,7 +9,7 @@ import { JobTitle } from './job-title.model';
 @Injectable()
 export class JobService {
 
-  constructor(private http: HttpClient,) {
+  constructor(private http: HttpClient) {
   }
 
   jobs(page: number, limit: number, type: string): Observable<Job[]> {
