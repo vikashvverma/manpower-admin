@@ -24,10 +24,12 @@ export class PartyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search();
     if (!this._service.checkCredentials()) {
+      this.snackBar.open('Please login to access this section!', '', { duration: 2000});
       this._service.logout();
+      return;
     }
+    this.search();
   }
 
   search() {
